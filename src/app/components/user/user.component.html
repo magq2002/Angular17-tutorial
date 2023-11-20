@@ -1,0 +1,14 @@
+<section>
+<p>Hello  {{username}}, you are a {{occupation}}</p>
+@if(doesUserExists){
+    <p>Congratulations! You Do exist = :)</p>
+}@else {
+    <p>We're sorry, but we have doubds about your existense</p>
+}
+<h2>He're your operating systems</h2>
+@for(os of operatingSystems; track os.id){<!--el track es el identificador unico, es requerido-->
+    <li (mouseover)="onMouseOver(os.name)">{{os.name | uppercase}}</li><!--event binding (de template al componente)-->
+}
+<div class="editable-div" [contentEditable]="isEditable"></div><!--property binding (de componente al template)-->
+<button (click)="emitToParent()">Message to parent!</button>
+</section>
